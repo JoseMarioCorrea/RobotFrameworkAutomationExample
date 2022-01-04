@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.10.1 on win32)" generated="20220104 18:56:15.681" rpa="false" schemaversion="2">
+<suite id="s1" name="TestCasesAPIExemplo" source="C:\RobotFrameworkAutomationExample-1\apitest\TestCasesAPIExemplo.robot">
+<test id="s1-t1" name="Cenário 01: Realizar pesquisa na API do ViaCep">
+<kw name="Dado que usuário deseja consultar a localização de um cep" library="ResourceAPI">
+<kw name="Abrir conexão com a API ViaCep" library="ResourceAPI">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>consultaCEP</arg>
+<arg>${HOST}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220104 18:56:15.799" level="INFO">Creating Session using : alias=consultaCEP, url=https://viacep.com.br/ws/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220104 18:56:15.798" endtime="20220104 18:56:15.799"/>
+</kw>
+<status status="PASS" starttime="20220104 18:56:15.798" endtime="20220104 18:56:15.799"/>
+</kw>
+<status status="PASS" starttime="20220104 18:56:15.798" endtime="20220104 18:56:15.799"/>
+</kw>
+<kw name="Quando realizar a requisição GET para consulta de endereço" library="ResourceAPI">
+<kw name="Realizar a requisição GET" library="ResourceAPI">
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${RESPOSTA}</var>
+<arg>consultaCEP</arg>
+<arg>${HOST}${CEP}/json/</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220104 18:56:16.224" level="INFO">GET Request : url=https://viacep.com.br/ws/01001000/json/ 
+ path_url=/ws/01001000/json/ 
+ headers={'User-Agent': 'python-requests/2.27.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220104 18:56:16.224" level="INFO">GET Response : url=https://viacep.com.br/ws/01001000/json/ 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.20.1', 'Date': 'Tue, 04 Jan 2022 21:56:16 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type, X-Request-With, X-Requested-By', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Max-Age': '86400', 'Expires': 'Tue, 04 Jan 2022 22:56:16 GMT', 'Cache-Control': 'max-age=3600, public', 'Pragma': 'public'} 
+ body={
+  "cep": "01001-000",
+  "logradouro": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "bairro": "Sé",
+  "localidade": "São Paulo",
+  "uf": "SP",
+  "ibge": "3550308",
+  "gia": "1004",
+  "ddd": "11",
+  "siafi": "7107"
+} 
+ </msg>
+<msg timestamp="20220104 18:56:16.225" level="INFO">C:\python310\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'viacep.com.br'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220104 18:56:16.227" level="INFO">${RESPOSTA} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220104 18:56:15.800" endtime="20220104 18:56:16.227"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Resposta: ${RESPOSTA.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220104 18:56:16.229" level="INFO">Resposta: {
+  "cep": "01001-000",
+  "logradouro": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "bairro": "Sé",
+  "localidade": "São Paulo",
+  "uf": "SP",
+  "ibge": "3550308",
+  "gia": "1004",
+  "ddd": "11",
+  "siafi": "7107"
+}</msg>
+<status status="PASS" starttime="20220104 18:56:16.227" endtime="20220104 18:56:16.230"/>
+</kw>
+<status status="PASS" starttime="20220104 18:56:15.800" endtime="20220104 18:56:16.230"/>
+</kw>
+<status status="PASS" starttime="20220104 18:56:15.799" endtime="20220104 18:56:16.230"/>
+</kw>
+<kw name="Então deve retornar o Status 200 e o body correto" library="ResourceAPI">
+<kw name="Validar o retorno do body" library="ResourceAPI">
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${RESPOSTA}</var>
+<arg>consultaCEP</arg>
+<arg>${HOST}${CEP}/json/</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220104 18:56:16.387" level="INFO">GET Request : url=https://viacep.com.br/ws/01001000/json/ 
+ path_url=/ws/01001000/json/ 
+ headers={'User-Agent': 'python-requests/2.27.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220104 18:56:16.387" level="INFO">GET Response : url=https://viacep.com.br/ws/01001000/json/ 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.20.1', 'Date': 'Tue, 04 Jan 2022 21:56:16 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type, X-Request-With, X-Requested-By', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Max-Age': '86400', 'Expires': 'Tue, 04 Jan 2022 22:56:16 GMT', 'Cache-Control': 'max-age=3600, public', 'Pragma': 'public'} 
+ body={
+  "cep": "01001-000",
+  "logradouro": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "bairro": "Sé",
+  "localidade": "São Paulo",
+  "uf": "SP",
+  "ibge": "3550308",
+  "gia": "1004",
+  "ddd": "11",
+  "siafi": "7107"
+} 
+ </msg>
+<msg timestamp="20220104 18:56:16.387" level="INFO">C:\python310\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'viacep.com.br'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220104 18:56:16.388" level="INFO">${RESPOSTA} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220104 18:56:16.231" endtime="20220104 18:56:16.388"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220104 18:56:16.389" endtime="20220104 18:56:16.389"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${BODY}</var>
+<arg>${RESPOSTA.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220104 18:56:16.391" level="INFO">${BODY} = {
+  "cep": "01001-000",
+  "logradouro": "Pra\xc3\xa7a da S\xc3\xa9",
+  "complemento": "lado \xc3\xadmpar",
+  "bairro": "S\xc3\xa9",
+  "localidade": "S\xc3\xa3o Paulo",
+  "uf": "SP",
+  "ibge": "3550308...</msg>
+<status status="PASS" starttime="20220104 18:56:16.389" endtime="20220104 18:56:16.391"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${BODY}</arg>
+<arg>cep</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220104 18:56:16.391" endtime="20220104 18:56:16.391"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${BODY}</arg>
+<arg>01001-000</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220104 18:56:16.391" endtime="20220104 18:56:16.392"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${BODY}</arg>
+<arg>logradouro</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220104 18:56:16.392" endtime="20220104 18:56:16.392"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${BODY}</arg>
+<arg>bairro</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220104 18:56:16.392" endtime="20220104 18:56:16.392"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${BODY}</arg>
+<arg>complemento</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220104 18:56:16.392" endtime="20220104 18:56:16.392"/>
+</kw>
+<status status="PASS" starttime="20220104 18:56:16.231" endtime="20220104 18:56:16.393"/>
+</kw>
+<status status="PASS" starttime="20220104 18:56:16.231" endtime="20220104 18:56:16.393"/>
+</kw>
+<status status="PASS" starttime="20220104 18:56:15.798" endtime="20220104 18:56:16.393"/>
+</test>
+<status status="PASS" starttime="20220104 18:56:15.683" endtime="20220104 18:56:16.394"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TestCasesAPIExemplo">TestCasesAPIExemplo</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220104 18:56:15.795" level="WARN">Imported resource file 'C:\RobotFrameworkAutomationExample-1\apitest\BDDAPIpt-br.robot' is empty.</msg>
+</errors>
+</robot>
