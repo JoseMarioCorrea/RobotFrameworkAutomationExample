@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.10.1 on win32)" generated="20220104 13:30:15.941" rpa="false" schemaversion="2">
+<suite id="s1" name="TestCasesBDDExemplo" source="C:\RobotFrameworkAutomationExample\googletest\TestCasesBDDExemplo.robot">
+<test id="s1-t1" name="Cenário 01: Realizar pesquisa por teste Automatizado no Google e validar seu retorno">
+<kw name="Dado que usuário esteja localizado na tela inicial do google" library="ResourceBDD">
+<kw name="Acessar o site do Google" library="ResourceBDD">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220104 13:30:16.133" level="INFO">Opening browser 'chrome' to base url 'https://google.com.br/'.</msg>
+<status status="PASS" starttime="20220104 13:30:16.132" endtime="20220104 13:30:18.294"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CAMPO_PESQUISAR}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220104 13:30:18.294" endtime="20220104 13:30:18.317"/>
+</kw>
+<status status="PASS" starttime="20220104 13:30:16.131" endtime="20220104 13:30:18.317"/>
+</kw>
+<status status="PASS" starttime="20220104 13:30:16.131" endtime="20220104 13:30:18.317"/>
+</kw>
+<kw name="Quando preencher o campo de pesquisa e clicar em pesquisar" library="ResourceBDD">
+<kw name="Preencher o campo de pesquisa e pesquisar" library="ResourceBDD">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CAMPO_PESQUISAR}</arg>
+<arg>${PESQUISA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220104 13:30:18.318" level="INFO">Typing text 'Teste Automatizado' into text field 'name=q'.</msg>
+<status status="PASS" starttime="20220104 13:30:18.318" endtime="20220104 13:30:18.421"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${CAMPO_PESQUISAR}</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20220104 13:30:18.422" level="INFO">Sending key(s) ('ENTER',) to name=q element.</msg>
+<msg timestamp="20220104 13:30:18.698" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20220104 13:30:18.698" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20220104 13:30:18.421" endtime="20220104 13:30:20.265"/>
+</kw>
+<status status="PASS" starttime="20220104 13:30:18.318" endtime="20220104 13:30:20.265"/>
+</kw>
+<status status="PASS" starttime="20220104 13:30:18.317" endtime="20220104 13:30:20.265"/>
+</kw>
+<kw name="Então deve realizar a pesquisa corretamente" library="ResourceBDD">
+<kw name="Validar o retorno da pesquisa" library="ResourceBDD">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${RESULTADO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220104 13:30:20.267" endtime="20220104 13:30:20.292"/>
+</kw>
+<status status="PASS" starttime="20220104 13:30:20.267" endtime="20220104 13:30:20.292"/>
+</kw>
+<status status="PASS" starttime="20220104 13:30:20.266" endtime="20220104 13:30:20.293"/>
+</kw>
+<status status="PASS" starttime="20220104 13:30:16.131" endtime="20220104 13:30:20.293"/>
+</test>
+<test id="s1-t2" name="Cenário 02: Acessar o site do RobotFramework e validar os textos da introdução">
+<kw name="Dado que usuário esteja localizado na tela inicial do RobotFramework" library="ResourceBDD">
+<kw name="Acessar o site do RobotFramework" library="ResourceBDD">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL2}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220104 13:30:20.298" level="INFO">Opening url 'https://robotframework.org/'</msg>
+<status status="PASS" starttime="20220104 13:30:20.298" endtime="20220104 13:30:20.964"/>
+</kw>
+<status status="PASS" starttime="20220104 13:30:20.297" endtime="20220104 13:30:20.965"/>
+</kw>
+<status status="PASS" starttime="20220104 13:30:20.297" endtime="20220104 13:30:20.965"/>
+</kw>
+<kw name="Quando localizar a introdução" library="ResourceBDD">
+<kw name="Localizar a introdução" library="ResourceBDD">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${INTRODUCAO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220104 13:30:20.967" endtime="20220104 13:30:20.990"/>
+</kw>
+<status status="PASS" starttime="20220104 13:30:20.966" endtime="20220104 13:30:20.991"/>
+</kw>
+<status status="PASS" starttime="20220104 13:30:20.966" endtime="20220104 13:30:20.991"/>
+</kw>
+<kw name="Então se o texto está escrito introduction" library="ResourceBDD">
+<kw name="Validar o texto presente" library="ResourceBDD">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${INTRODUCAO}</arg>
+<arg>INTRODUCTION</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220104 13:30:20.994" level="INFO">Verifying element 'id=introduction' contains exact text 'INTRODUCTION'.</msg>
+<status status="PASS" starttime="20220104 13:30:20.993" endtime="20220104 13:30:21.016"/>
+</kw>
+<status status="PASS" starttime="20220104 13:30:20.993" endtime="20220104 13:30:21.016"/>
+</kw>
+<status status="PASS" starttime="20220104 13:30:20.992" endtime="20220104 13:30:21.017"/>
+</kw>
+<status status="PASS" starttime="20220104 13:30:20.296" endtime="20220104 13:30:21.017"/>
+</test>
+<kw name="Fechar Navegador" library="ResourceBDD" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220104 13:30:21.019" endtime="20220104 13:30:23.175"/>
+</kw>
+<status status="PASS" starttime="20220104 13:30:21.019" endtime="20220104 13:30:23.175"/>
+</kw>
+<status status="PASS" starttime="20220104 13:30:15.943" endtime="20220104 13:30:23.175"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="TestCasesBDDExemplo">TestCasesBDDExemplo</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220104 13:30:16.129" level="WARN">Imported resource file 'C:\RobotFrameworkAutomationExample\googletest\BDDpt-br.robot' is empty.</msg>
+</errors>
+</robot>
